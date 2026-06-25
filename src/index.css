@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: #F2EFE9;
+  color: #232323;
+  font-family: 'Inter', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, .font-title {
+  font-family: 'Fraunces', serif;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-green { background: #E4F3E8; color: #1F7A3D; }
+.badge-gold { background: #F8EFDC; color: #9A7A2E; }
+.badge-grey { background: #ECEAE6; color: #6E6E6E; }
+.badge-red { background: #FBE7E7; color: #B33333; }
+
+.ics-input {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.95rem;
+  color: #232323;
+}
+
+.ics-input:focus {
+  outline: 2px solid #C9A24B;
+  outline-offset: 1px;
+}
+
+/* Link "pular para o conteúdo" — visível só ao navegar por teclado */
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -3rem;
+  z-index: 60;
+  background: #232323;
+  color: #fff;
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 0.5rem;
+  outline: 2px solid #C9A24B;
+  outline-offset: 2px;
+}
+
+/* Foco visível por teclado para controles interativos sem estilo próprio */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #C9A24B;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Respeita quem pediu menos animação no sistema (acessibilidade) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://atiliorod-jpg.github.io/instituto-cesar-santos/sitemap.xml
