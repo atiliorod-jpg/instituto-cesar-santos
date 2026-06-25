@@ -31,6 +31,7 @@ import AreaConsultorias from './pages/area/AreaConsultorias.jsx'
 import AreaConsultoriaDetalhe from './pages/area/AreaConsultoriaDetalhe.jsx'
 import AreaEquipeEditor from './pages/area/AreaEquipeEditor.jsx'
 import AreaConteudo from './pages/area/AreaConteudo.jsx'
+import AreaProspeccao from './pages/area/AreaProspeccao.jsx'
 
 // Demonstração clicável (seletor de perfil + telas da equipe, dados de exemplo)
 import Login from './pages/Login.jsx'
@@ -161,6 +162,7 @@ function AppRoutes() {
       <Route path="/area/consultorias/:id" element={<RequireAuth><AreaConsultoriaDetalhe /></RequireAuth>} />
       <Route path="/area/equipe" element={<RequireAuth><AreaEquipeEditor /></RequireAuth>} />
       <Route path="/area/conteudo" element={<RequireAuth><AreaConteudo /></RequireAuth>} />
+      <Route path="/area/prospeccao" element={<RequireAuth><AreaProspeccao /></RequireAuth>} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )

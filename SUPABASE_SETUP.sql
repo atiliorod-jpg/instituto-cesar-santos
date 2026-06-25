@@ -396,6 +396,14 @@ create policy restaurantes_captacao_ins on restaurantes for insert
   with check (meu_papel() = 'captacao' and captado_por = auth.uid());
 create policy restaurantes_captacao_sel on restaurantes for select
   using (meu_papel() = 'captacao' and captado_por = auth.uid());
+-- captacao corrige/exclui os PRÓPRIOS prospects (não muda o dono; só exclui o que ainda não foi distribuído)
+drop policy if exists restaurantes_captacao_upd on restaurantes;
+drop policy if exists restaurantes_captacao_del on restaurantes;
+create policy restaurantes_captacao_upd on restaurantes for update
+  using (meu_papel() = 'captacao' and captado_por = auth.uid())
+  with check (meu_papel() = 'captacao' and captado_por = auth.uid());
+create policy restaurantes_captacao_del on restaurantes for delete
+  using (meu_papel() = 'captacao' and captado_por = auth.uid() and status = 'prospect');
 create policy restaurantes_chef on restaurantes for select
   using (chef_id = meu_chef_id());
 create policy restaurantes_cliente on restaurantes for select

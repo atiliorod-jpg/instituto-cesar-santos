@@ -4,6 +4,7 @@ import { useAuth } from '../store/AuthContext.jsx'
 import { supabase } from '../lib/supabase.js'
 import Logo from '../components/Logo.jsx'
 import Notificacoes from '../components/Notificacoes.jsx'
+import AlertasPrazo from '../components/AlertasPrazo.jsx'
 
 const PAPEL_LABEL = {
   diretor: 'Diretor — controle total',
@@ -96,6 +97,7 @@ export default function AreaEquipe() {
 
         {papel === 'diretor' && (
           <>
+            <AlertasPrazo />
             <div className="grid grid-cols-2 gap-3 mb-6">
               <Stat label="Cidades" valor={stats.cidades} />
               <Stat label="Restaurantes" valor={stats.restaurantes} />
@@ -140,9 +142,16 @@ export default function AreaEquipe() {
         )}
 
         {papel === 'captacao' && (
-          <div className="grid grid-cols-2 gap-3 mb-6">
-            <Stat label="Prospects cadastrados" valor={stats.restaurantes} />
-          </div>
+          <>
+            <div className="grid grid-cols-2 gap-3 mb-6">
+              <Stat label="Prospects cadastrados" valor={stats.restaurantes} />
+            </div>
+
+            <h2 className="font-title text-base font-semibold mb-2.5">Módulos</h2>
+            <div className="grid grid-cols-2 gap-3">
+              <Modulo to="/area/prospeccao" titulo="Prospecção" desc="Cadastrar restaurantes" />
+            </div>
+          </>
         )}
 
         {papel === 'cliente' && (
